@@ -10,5 +10,7 @@ imprimirCompra() imprimi todos os dados de uma compra.
 
 Open/Closed Principle (OCP)
 O princípio de Aberto/Fechado propõe que entidades (classes, funções, módulos, etc.) devem ser abertas para extensão, mas fechadas para modificação.
+Exemplo: no pacote openClosedPrinciple a classe Animal é extendida pela classe Cachorro e Passaro, onde os metodos declarados dentro de Animal, são herdados por Cachorro e Passaro.
+Cachorro e Passaro, implementam os metodos de animal de diferentes formas. Dessa forma abrimos a classe Animal para "extensão"
 
 Aberto para extensão significa que, ao receber um novo requerimento, é possível adicionar um novo comportamento. Fechado para modificação significa que, para introduzir um novo comportamento (extensão), não é necessário modificar o código existente
