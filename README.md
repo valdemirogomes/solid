@@ -14,3 +14,8 @@ Exemplo: no pacote openClosedPrinciple, a classe Animal é extendida pela classe
 Cachorro e Passaro, implementam os métodos de Animal de diferentes formas. Dessa maneira, abrimos a classe Animal para "extensão"
 
 Aberto para extensão significa que, ao receber um novo requerimento, é possível adicionar um novo comportamento. Fechado para modificação significa que, para introduzir um novo comportamento (extensão), não é necessário modificar o código existente
+
+**_Liskov Substitution Principle (LSP)_**
+  
+Classes derivadas (ou classes-filhas) devem ser capazes de substituir suas classes-base (ou classes-mães)”.
+Ou seja, uma classe-filha deve ser capaz de executar tudo que sua classe-mãe faz. Esse princípio se conecta com o polimorfismo e reforça esse pilar da POO.
