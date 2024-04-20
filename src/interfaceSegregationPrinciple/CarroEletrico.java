@@ -1,6 +1,6 @@
 package interfaceSegregationPrinciple;
 
-public class CarroEletrico extends Veiculo implements CarroEletrica{
+public class CarroEletrico extends Carro implements InterfaceCarroEletrica{
 
 	public CarroEletrico(String ano, String modelo, String fabricante) {
 		super(ano, modelo, fabricante);

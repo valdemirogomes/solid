@@ -1,11 +1,11 @@
 package interfaceSegregationPrinciple;
 
-public class Veiculo implements InterfaceVeiculo {
+public class Carro implements InterfaceCarro {
 	private String ano;
 	private String modelo;
 	private String fabricante;
 	
-	public Veiculo(String ano, String modelo, String fabricante) {
+	public Carro(String ano, String modelo, String fabricante) {
 		this.ano = ano;
 		this.modelo = modelo;
 		this.fabricante = fabricante;
