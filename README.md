@@ -22,5 +22,10 @@ Dentro do pacote liscovSubstitutionPrinciple tem a classe base “mãe” Aluno,
 Também, é de se notar que na classe MAIN, é possível ver a classe base “mãe” sendo substituída, como diz no conceito de LISKOV.
   
 Exemplo: Aluno nivelSuperior2 = new NivelSuperior("Francisco", 2514326, "Odontologia");
+  
+**_I - Interface Segregation Principle - Principio da segregação de interface_**
+
+Basicamente, este principio diz que uma Classe não deve ser forçada a implementar um método que não faça sentido para ela. Ao invés de ter uma Interface única, faz sentido ter Interfaces especificas para cada Classe, assim evita-se de implementar um método em uma Classe que não irá utiliza-lo
+
 
 
