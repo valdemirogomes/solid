@@ -4,8 +4,41 @@
 
 Se uma classe tem várias responsabilidades, mudar um requisito do projeto pode trazer várias razões para modificar a classe. Por isso, as classes devem ter responsabilidades únicas.    
 
-Usando esse princípio no projeto, pode-se dizer que a classe Compra, realiza as responsabilidades da classe Compra, ou seja, o metódo de imprimirCompra() imprimi todos os dados de uma compra.
+Usando esse princípio no projeto, pode-se dizer que a classe Compra, realiza as responsabilidades da classe Compra.
 
+Em resumo, uma Classe não deve fazer algo que não é de sua responsabilidade.
+```
+public class Compra {
+	
+	private Produto produto;
+	private int quantidade;
+	private double porcDesconto;
+	private double porcImposto;
+	private double total;
+		}
+```
+Dentro da Classe Compra temos:
+```
+ 	public double calcularTotal() {
+		double preco = ((produto.preco - produto.preco * this.porcDesconto)*this.quantidade);
+		return preco;
+	}
+```
+Esse método é responsável por calcular o total de uma compra. Não seria correto esse método está dentro da Classe Produto. Produto representa um produto, e Compra representa uma compra, logo o método calcularTotal() está em Compra, por realizar o cálculo total de uma compra.
+
+Também, temos o método imprimirCompra(), que faz a impressão dos dados de uma compra, logo ele está na Classe Compra.
+```
+	public void imprimirCompra() {
+		System.out.println("Produto: " + produto.produto);
+		System.out.println("Tipo do Produto: " + produto.tipo);
+		System.out.println("Preço Unitário R$: " +  produto.preco);
+		System.out.println("Quantidade: " + this.quantidade);
+		System.out.println("Porcentagem de desconto: " + this.porcDesconto);
+		System.out.println("Procentagem de imposto: " + this.porcImposto);
+		System.out.println("Valor Total R$: " + calcularTotal());
+	}
+```
+		
 **_O - Open/Closed Principle (OCP)_**
   
 O princípio de Aberto/Fechado propõe que entidades (classes, funções, módulos, etc.) devem ser abertas para extensão, mas fechadas para modificação.  
