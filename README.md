@@ -111,7 +111,76 @@ public abstract class Animal {
 Aberto para extensão significa que, ao receber um novo requerimento, é possível adicionar um novo comportamento. Fechado para modificação significa que, para introduzir um novo comportamento (extensão), não é necessário modificar o código existente
 
 **_L - Liskov Substitution Principle (LSP)_**
-  
+
+“Classes derivadas (ou classes-filhas) devem ser capazes de substituir suas classes-base (ou classes-mães)”.
+Ou seja, uma classe-filha deve ser capaz de executar tudo que sua classe-mãe faz. Esse princípio se conecta com o polimorfismo e reforça esse pilar da POO.
+
+ ```
+public abstract class Aluno {
+	private String nome;
+	private int matricula;
+	private String curso;
+	
+	
+	public Aluno(String nome, int matricula, String curso) {
+
+		this.nome = nome;
+		this.matricula = matricula;
+		this.curso = curso;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public int getMatricula() {
+		return matricula;
+	}
+	public void setMatricula(int matricula) {
+		this.matricula = matricula;
+	}
+	public String getCurso() {
+		return curso;
+	}
+	public void setCurso(String curso) {
+		this.curso = curso;
+	}
+	public void imprimirDados() {
+		System.out.println("Nome: "+this.nome);
+		System.out.println("Nome: "+this.matricula);
+		System.out.println("Nome: "+this.curso);
+	}
+	
+	
+
+}
+ ```
+```
+ public class NivelSuperior extends Aluno {
+	private String formacao;
+	private String dataInicio;
+	
+
+	public NivelSuperior(String nome, int matricula, String curso, String formacao, String dataInicio) {
+		super(nome, matricula, curso);
+		this.formacao = formacao;
+		this.dataInicio = dataInicio;
+	}
+
+	@Override
+	public void imprimirDados() {
+		System.out.println("Nome: "+super.getNome());
+		System.out.println("Nome: "+super.getMatricula());
+		System.out.println("Nome: "+super.getCurso());
+		System.out.println("Nome: "+this.formacao);
+		System.out.println("Nome: "+this.dataInicio);
+	}
+
+
+}
+```
+	  
 Dentro do pacote liscovSubstitutionPrinciple tem a classe base “mãe” Aluno, onde a classe “filha” NivelSuperior herda todos os atributos e comportamentos da classe Aluno. Observe que o método imprimirDados(), declarado na classe Aluno, é sobreposto na classe NivelSuperior tendo um comportamento completamente diferente do comportamento do mesmo método da classe mãe. Esse comportamento, lembra o conceito de POLIMORFISMO, onde um objeto/classe/método pode se comportar de diferentes formas.
 
 Também, é de se notar que na classe MAIN, é possível ver a classe base “mãe” sendo substituída, como diz no conceito de LISKOV.
