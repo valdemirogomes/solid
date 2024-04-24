@@ -43,8 +43,70 @@ Também, temos o método imprimirCompra(), que faz a impressão dos dados de uma
   
 O princípio de Aberto/Fechado propõe que entidades (classes, funções, módulos, etc.) devem ser abertas para extensão, mas fechadas para modificação.  
   
-Exemplo: no pacote openClosedPrinciple, a classe Animal é extendida pela classe Cachorro e Passaro, onde os métodos  declarados dentro de Animal, são herdados por Cachorro e Passaro.
-Cachorro e Passaro, implementam os métodos de Animal de diferentes formas. Dessa maneira, abrimos a classe Animal para "extensão"
+Exemplo: no pacote openClosedPrinciple, a classe Animal é extendida pela classe Cachorro e Passaro, onde os métodos declarados dentro de Animal, são herdados pelas *Classes filhas.*
+Cachorro e Passaro, implementam os métodos de Animal de diferentes formas, dessa maneira abrimos a classe Animal para "extensão"
+
+```
+public abstract class Animal {
+	protected float peso;
+	protected int idade;
+	protected int membros;
+	
+	public abstract void locomover();
+	public abstract void alimentar();
+	public abstract void emitirSom();
+
+
+}
+```
+```
+	public class Cachorro extends Animal {
+
+	@Override
+	public void locomover() {
+		System.out.println("Andando");		
+		
+	}
+
+	@Override
+	public void alimentar() {
+		System.out.println("Ração");		
+		
+	}
+
+	@Override
+	public void emitirSom() {
+		System.out.println("Late");		
+		
+	}
+
+}
+```
+```
+ public class Passaro extends Animal{
+
+	@Override
+	public void locomover() {
+		System.out.println("Voar");		
+		
+	}
+
+	@Override
+	public void alimentar() {
+		System.out.println("Sementes e grãos");		
+		
+	}
+
+	@Override
+	public void emitirSom() {
+		System.out.println("Inato");		
+		
+	}
+
+}
+```
+
+
 
 Aberto para extensão significa que, ao receber um novo requerimento, é possível adicionar um novo comportamento. Fechado para modificação significa que, para introduzir um novo comportamento (extensão), não é necessário modificar o código existente
 
