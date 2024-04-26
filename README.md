@@ -1,4 +1,4 @@
-**_O que é SOLID?_**
+**O que é SOLID?**
 	
 O acrônimo **SOLID** representa os cinco princípios que facilitam o processo de desenvolvimento — o que facilita a manutenção e a expansão do software.
 	
