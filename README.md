@@ -250,8 +250,66 @@ public class Main {
 	  	  
 **_I - Interface Segregation Principle - Principio da segregação de interface (ISP)_**
 
-Basicamente, este principio diz que uma Classe não deve ser forçada a implementar um método que não faça sentido para ela. Ao invés de ter uma Interface única, faz sentido ter Interfaces especificas para cada Classe, assim evita-se de implementar um método em uma Classe que não irá utiliza-lo
-  
+Basicamente, este principio diz que uma Classe não deve ser forçada a implementar um método que não faça sentido para ela. Ao invés de ter uma Interface única, faz sentido ter Interfaces especificas para cada Classe, assim evita-se de implementar um método em uma Classe que não irá utiliza-lo.
+
+```
+package interfaceSegregationPrinciple;
+
+public class Carro implements InterfaceCarro {
+	private String ano;
+	private String modelo;
+	private String fabricante;
+	
+	public Carro(String ano, String modelo, String fabricante) {
+		this.ano = ano;
+		this.modelo = modelo;
+		this.fabricante = fabricante;
+	}
+	public String getAno() {
+		return ano;
+	}
+	public void setAno(String ano) {
+		this.ano = ano;
+	}
+	public String getModelo() {
+		return modelo;
+	}
+	public void setModelo(String modelo) {
+		this.modelo = modelo;
+	}
+	public String getFabricante() {
+		return fabricante;
+	}
+	public void setFabricante(String fabricante) {
+		this.fabricante = fabricante;
+	}
+	@Override
+	public void mover() {
+		System.out.println(this.modelo+ " está em movimento");
+		
+	}
+	@Override
+	public void abrirPortas() {
+		System.out.println(this.modelo+ " abriu a porta do motorista");
+		
+	}
+	@Override
+	public void abastecer() {
+		System.out.println(this.modelo+ " abasteceu com gasolina");
+		
+	}
+	
+	
+
+}
+```
+Observe que a Classe Carro implementa a interface InterfaceCarro.
+O que isso significa? InterfaceCarro tem comportamentos que um carro convencional tem logo, a Classe Carro implementa InterfaceCarro. Por outro lado, temos a Classe CarroEletrico mas, um carro eletrico existem um comportamento diferente que é, trocarFonte() logo, se faz necessario a Classe CarroEletrico implementar uma interface especifica, por isso, temos a InterfaceCarro.
+
+A Classe Carro, não poderia implementar InterfaceCarro, pois estaria implementando um metodo que nao faz sentido a ela.
+
+É de se notar, que a Classe CarroEletrico, estende a Classe Carro mas, porque isso acontece? Um Carro Eletrico tem os mesmos comportamentos de um carro convencional portanto a classe CarroEletrico herda todos os atributos e Comportamentos de Carro, mas a Classe Carro não tem todos os comportamentos de CarroEletrico,
+	
 **_D - Dependency Inversion Principle - Principio da Inversão de Dependencia (DIP)_**
   
 O Princípio da Inversão de Dependência diz: “dependa de abstrações e não de implementações concretas”.
