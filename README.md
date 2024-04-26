@@ -303,12 +303,57 @@ public class Carro implements InterfaceCarro {
 
 }
 ```
-Observe que a Classe Carro implementa a interface InterfaceCarro.
-O que isso significa? InterfaceCarro tem comportamentos que um carro convencional tem logo, a Classe Carro implementa InterfaceCarro. Por outro lado, temos a Classe CarroEletrico mas, um carro eletrico existem um comportamento diferente que é, trocarFonte() logo, se faz necessario a Classe CarroEletrico implementar uma interface especifica, por isso, temos a InterfaceCarro.
+	
+```
+public class CarroEletrico extends Carro implements InterfaceCarroEletrica{
 
-A Classe Carro, não poderia implementar InterfaceCarro, pois estaria implementando um metodo que nao faz sentido a ela.
+	public CarroEletrico(String ano, String modelo, String fabricante) {
+		super(ano, modelo, fabricante);
+	}
 
-É de se notar, que a Classe CarroEletrico, estende a Classe Carro mas, porque isso acontece? Um Carro Eletrico tem os mesmos comportamentos de um carro convencional portanto a classe CarroEletrico herda todos os atributos e Comportamentos de Carro, mas a Classe Carro não tem todos os comportamentos de CarroEletrico,
+	@Override
+	public void mover() {
+		System.out.println(super.getModelo()+ " esta se movendo");
+		
+	}
+
+	@Override
+	public void abrirPortas() {
+		System.out.println(super.getModelo()+ " abriu a porta do passageiro");
+
+		
+	}
+
+	@Override
+	public void abastecer() {
+		System.out.println(super.getModelo()+" esta carregando Bateria");
+		
+	}
+
+	@Override
+	public void trocarFonte() {
+		System.out.println("Trocando fonte de carga do carro "+super.getModelo());
+
+		
+	} 
+
+}
+```
+	
+```
+package interfaceSegregationPrinciple;
+
+public interface InterfaceCarroEletrico extends InterfaceCarro{
+	public void trocarFonte();
+
+}
+```
+	
+Observe que a Classe Carro implementa a InterfaceCarro. O que isso significa? Carro implementa apenas a InterfaceCarro. Por outro lado, temos a Classe CarroEletrico, mas CarroEletrico tem comportamentos diferentes da Classe Carro, logo se faz necessário CarroEletrico implementar uma interface específica, por isso, temos a InterfaceCarro.
+	
+É de se notar, que a Classe CarroEletrico, estende a Classe Carro, mas porque isso acontece? CarroEletrico tem os mesmos comportamentos de Carro, portanto CarroEletrico herda todos os atributos e Comportamentos de Carro, mas a Classe Carro não tem todos os comportamentos de CarroEletrico.
+
+Observação: caso, Carro implementasse InterfaceCarroEletrico, estaria errado, pois Carro não deve ter o metódo trocarFonte(), apenas CarroEletrico.
 	
 **_D - Dependency Inversion Principle - Principio da Inversão de Dependencia (DIP)_**
   
