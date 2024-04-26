@@ -1,3 +1,9 @@
+**_O que é SOLID?_**
+	
+O acrônimo **SOLID** representa os cinco princípios que facilitam o processo de desenvolvimento — o que facilita a manutenção e a expansão do software.
+	
+Estes princípios são fundamentais na programação orientada a objetos e podem ser aplicados em qualquer linguagem que adote este paradigma.
+	
 **_S - Single Responsiblity Principle (SRP)_**     
 
 “Cada classe deve ter um, e somente um, motivo para mudar.”    
@@ -181,7 +187,7 @@ public abstract class Aluno {
 }
 ```
 	  
-No código acima, podemos ver a Classe base *mãe - Aluno* sendo estendida para a Classe *filha - NivelSuperior*, nota-se que a classe *filha* herda todos os atributos e comportamentos da Classe da *mãe - Aluno*. Observe que o método imprimirDados(), declarado na Classe *mãe - Aluno*, é sobreposto na Classe *filha - NivelSuperior* tendo um comportamento completamente diferente do comportamento do mesmo método da Classe mãe. Esse comportamento, lembra o conceito de POLIMORFISMO, onde um objeto/classe/método pode se comportar de diferentes formas.
+No código acima, podemos ver a Classe base **mãe - Aluno** sendo estendida para a Classe **filha - NivelSuperior**, nota-se que a classe *filha* herda todos os atributos e comportamentos da Classe da *mãe - Aluno*. Observe que o método imprimirDados(), declarado na Classe **mãe - Aluno**, é sobreposto na Classe **filha - NivelSuperior** tendo um comportamento completamente diferente do comportamento do mesmo método da Classe mãe. Esse comportamento, lembra o conceito de POLIMORFISMO, onde um objeto/classe/método pode se comportar de diferentes formas.
 
  Observe:
 
@@ -224,7 +230,7 @@ O metódo imprimirDados() da Classe Aluno é o mesmo da Classe NivelSuperior, po
 }
 ```
 	
-Também, é de se notar que na classe *Main*, é possível ver a Classe base *mãe - Aluno* sendo substituída, como diz no conceito de LISKOV.
+Também, é de se notar que na classe **Main**, é possível ver a Classe base **mãe - Aluno** sendo substituída, como diz no conceito de LISKOV.
 ```
 public class Main {
 
