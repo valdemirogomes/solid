@@ -181,12 +181,67 @@ public abstract class Aluno {
 }
 ```
 	  
-Dentro do pacote liscovSubstitutionPrinciple tem a classe base “mãe” Aluno, onde a classe “filha” NivelSuperior herda todos os atributos e comportamentos da classe Aluno. Observe que o método imprimirDados(), declarado na classe Aluno, é sobreposto na classe NivelSuperior tendo um comportamento completamente diferente do comportamento do mesmo método da classe mãe. Esse comportamento, lembra o conceito de POLIMORFISMO, onde um objeto/classe/método pode se comportar de diferentes formas.
+No código acima, podemos ver a Classe base *mãe - Aluno* sendo estendida para a Classe *filha - NivelSuperior*, nota-se que a classe *filha* herda todos os atributos e comportamentos da Classe da *mãe - Aluno*. Observe que o método imprimirDados(), declarado na Classe *mãe - Aluno*, é sobreposto na Classe *filha - NivelSuperior* tendo um comportamento completamente diferente do comportamento do mesmo método da Classe mãe. Esse comportamento, lembra o conceito de POLIMORFISMO, onde um objeto/classe/método pode se comportar de diferentes formas.
 
-Também, é de se notar que na classe MAIN, é possível ver a classe base “mãe” sendo substituída, como diz no conceito de LISKOV.
-  
-Exemplo: Aluno nivelSuperior2 = new NivelSuperior("Francisco", 2514326, "Odontologia");
-  
+ Observe:
+
+O metódo imprimirDados() da Classe Aluno é o mesmo da Classe NivelSuperior, porém a Classe NivelSuperior estende a Classe Aluno com isto, podemos ver o mesmo metódo se comportando de forma diferente.
+ ```
+ public abstract class Aluno {
+	private String nome;
+	private int matricula;
+	private String curso;
+ 	public void imprimirDados() {
+		System.out.println("Nome: "+this.nome);
+		System.out.println("Nome: "+this.matricula);
+		System.out.println("Nome: "+this.curso);
+	}
+}
+```
+
+```
+   public class NivelSuperior extends Aluno {
+	private String formacao;
+	private String dataInicio;
+	
+
+	public NivelSuperior(String nome, int matricula, String curso, String formacao, String dataInicio) {
+		super(nome, matricula, curso);
+		this.formacao = formacao;
+		this.dataInicio = dataInicio;
+	}
+
+	@Override
+	public void imprimirDados() {
+		System.out.println("Nome: "+super.getNome());
+		System.out.println("Nome: "+super.getMatricula());
+		System.out.println("Nome: "+super.getCurso());
+		System.out.println("Nome: "+this.formacao);
+		System.out.println("Nome: "+this.dataInicio);
+	}
+
+
+}
+```
+	
+Também, é de se notar que na classe *Main*, é possível ver a Classe base *mãe - Aluno* sendo substituída, como diz no conceito de LISKOV.
+```
+public class Main {
+
+	public static void main(String[] args) {
+		Aluno nivelSuperior1 = new NivelSuperior("Chiquinho", 6977968, "Medicina","Graduação","01/02/2005");
+		Aluno nivelSuperior2 = new NivelSuperior("Francisco", 2514326, "Odontologia","Graduação","01/02/2005");
+		nivelSuperior1.imprimirDados();
+		nivelSuperior2.imprimirDados();
+
+		
+		
+
+	}
+
+}
+```
+	  	  
 **_I - Interface Segregation Principle - Principio da segregação de interface (ISP)_**
 
 Basicamente, este principio diz que uma Classe não deve ser forçada a implementar um método que não faça sentido para ela. Ao invés de ter uma Interface única, faz sentido ter Interfaces especificas para cada Classe, assim evita-se de implementar um método em uma Classe que não irá utiliza-lo
